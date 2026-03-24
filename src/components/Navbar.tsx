@@ -21,7 +21,7 @@ export const Navbar = () => {
                 <div className="border border-white  border-opacity-35 h-10 w-10 inline-flex items-center justify-center rounded-lg cursor-pointer sm:hidden ">
                     <MenuIcon className=" text-white" />
                 </div>
-                <nav className="hidden gap-6 items-center  sm:flex">
+                <nav className="hidden gap-6 items-center sm:flex">
                     {navItems.map((item) => {
                         return (
                                     <a

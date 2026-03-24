@@ -1,7 +1,10 @@
+"use client";
 import ArrowIcon from '../assets/icons/arrow-w.svg';
 import cursorImg from '../assets/images/cursor.png';
 import msgImg from '../assets/images/message.png';
 import Image from 'next/image';
+import {motion} from 'framer-motion';
+
 
 export const Hero = () => {
     return(
@@ -20,8 +23,19 @@ export const Hero = () => {
                 <div className='flex justify-center mt-8'>
                     <div className='inline-flex items-center relative'>
                     <h1 className="text-7xl sm:text-9xl text-center tracking-tighter inline-flex">One task <br/> at a Time</h1>
-                    <Image src={cursorImg} alt="cursor" height="200" width="200" className='absolute right-[476px] top-[108px] hidden sm:inline'/>
-                    <Image src={msgImg} alt="msg" height="200" width="200" className='absolute left-[498px] top-[56px] hidden sm:inline'/>
+                    <motion.div className='absolute right-[476px] top-[108px] hidden sm:inline'
+                        drag
+                        dragSnapToOrigin
+                    >
+                        <Image src={cursorImg} alt="cursor" height="200" width="200" className='max-w-none' draggable="false" />
+                    </motion.div>
+                    <motion.div className='absolute left-[498px] top-[56px] hidden sm:inline'
+                        drag
+                        dragSnapToOrigin
+                    >
+                        <Image src={msgImg} alt="msg" height="200" width="200" className='max-w-none' draggable="false"/>
+                    </motion.div>
+                    
                     </div>
                 </div>
                 <div className="flex justify-center">
