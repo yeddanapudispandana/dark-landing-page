@@ -1,12 +1,15 @@
+"use client";
 import emojiStarImage from "../assets/images/emojistar.png"
 import helixImage from "../assets/images/helix2.png"
 import Image from "next/image";
+import { useScroll } from "framer-motion";
 
 export const CallToAction = () => {
     return(
         <div className="bg-black text-white py-[72px] sm:py-24 text-center">
             <div className="container max-w-xl relative">
-                <Image src={helixImage} alt="heliximg" className="absolute top-6 right-[calc(100%+36px)]" />
+            
+                <Image src={helixImage} alt="heliximg" className="absolute top-6 left-[calc(100%+36px)] " />
                 <Image src={emojiStarImage} alt="" className="absolute -top-[120px] right-[calc(100%+24px)]" />
                 <h2 className="font-bold text-5xl tracking-tighter sm:text-6xl">Get instatnt access</h2>
                 <p className="text-xl text-white/70 mt-5">

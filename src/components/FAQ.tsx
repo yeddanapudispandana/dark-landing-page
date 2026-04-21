@@ -2,6 +2,8 @@
 import PlusIcon from "../assets/icons/plus.svg"
 import { useState } from "react";
 import clsx from "clsx";
+import { AnimatePresence } from 'framer-motion';
+import {motion} from 'framer-motion';
 
 
 const questions = [
@@ -37,7 +39,32 @@ const AccordianItem = ({question,answer,key}:{question: string; answer: string; 
                 <span className="flex-1 text-lg font-bold">{question}</span>
                 <PlusIcon className={clsx("w-5 h-5 transition-transform", { "rotate-45": isOpen })} />
             </div>
-            <div className={clsx("mt-4",{hidden: !isOpen, "": isOpen === true})}>{answer}</div>
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div 
+                        // className={clsx("mt-4",{hidden: !isOpen, "": isOpen === true})}
+                        initial={{
+                            opacity: 0,
+                            height: 0,
+                            marginTop: 0,
+                        }}
+                        animate={{
+                            opacity: 1,
+                            height: "auto",
+                            marginTop: "16px",
+                        }}
+
+                        exit={{
+                            opacity: 0,
+                            height: 0,
+                            marginTop: 0,
+                        }}
+                    >
+                        {answer}
+                    </motion.div>
+                )}
+            </AnimatePresence>
+            
         </div>
     );
 }
